@@ -1,0 +1,131 @@
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-lg">
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-4">Welcome Back</h2>
+                    
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "needs-validation" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group mb-3">
+                            <label for="Username" class="form-label">Username</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <input type="text" class="form-control" id="Username" name="Username" required 
+                                       placeholder="Enter your username" />
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="Password" class="form-label">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                                <input type="password" class="form-control" id="Password" name="Password" required 
+                                       placeholder="Enter your password" />
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 mb-3">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-sign-in-alt me-2"></i> Sign In
+                            </button>
+                        </div>
+
+                        if (ViewBag.ErrorMessage != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="fas fa-exclamation-circle me-2"></i>
+                                @ViewBag.ErrorMessage
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: -webkit-linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: -moz-linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9);
+            -webkit-box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            -moz-box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .form-control {
+            border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            padding: 10px 15px;
+        }
+        .input-group-text {
+            background-color: transparent;
+            border-right: none;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+        .form-control:focus {
+            -webkit-box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+            -moz-box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+            border-color: #80bdff;
+        }
+        .btn-primary {
+            border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            padding: 12px;
+            font-weight: 500;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            background: -webkit-linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            background: -moz-linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            border: none;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            -webkit-transform: translateY(-1px);
+            -moz-transform: translateY(-1px);
+            transform: translateY(-1px);
+            -webkit-box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+            -moz-box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+            box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+        }
+        @@supports not (backdrop-filter: blur(10px)) {
+            .card {
+                background-color: rgba(255, 255, 255, 0.95);
+            }
+        }
+    </style>
+}

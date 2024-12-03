@@ -1,0 +1,130 @@
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+@section Styles {
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .feature-card .card-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            text-align: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .hero-section {
+            padding: 4rem 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+        .btn-custom {
+            border-radius: 25px;
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,123,255,0.2);
+        }
+        .section-title {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .card-text {
+            margin-bottom: 2rem;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+}
+
+<div class="container py-5">
+    <div class="hero-section mb-5 p-5">
+        <h1 class="display-4 mb-3">Welcome to Your Dashboard</h1>
+        <p class="lead mb-4">Build powerful web applications with ASP.NET MVC's modern framework</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="https://asp.net" class="btn btn-primary btn-lg btn-custom">
+                <i class="fas fa-rocket me-2"></i>Get Started
+            </a>
+            @if (Request.IsAuthenticated)
+            {
+                @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "btn btn-outline-danger btn-lg btn-custom" })
+            }
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card feature-card">
+                <div class="card-body">
+                    <i class="fas fa-code feature-icon"></i>
+                    <h3 class="section-title">Development</h3>
+                    <p class="card-text">
+                        Experience the power of pattern-based development with clean separation of concerns and full markup control.
+                    </p>
+                    <a href="https://go.microsoft.com/fwlink/?LinkId=301865" class="btn btn-outline-primary btn-custom">
+                        <i class="fas fa-arrow-right me-2"></i>Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card feature-card">
+                <div class="card-body">
+                    <i class="fas fa-box-open feature-icon"></i>
+                    <h3 class="section-title">Libraries</h3>
+                    <p class="card-text">
+                        Easily manage your project dependencies with NuGet package manager in Visual Studio.
+                    </p>
+                    <a href="https://go.microsoft.com/fwlink/?LinkId=301866" class="btn btn-outline-primary btn-custom">
+                        <i class="fas fa-arrow-right me-2"></i>Explore
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card feature-card">
+                <div class="card-body">
+                    <i class="fas fa-cloud feature-icon"></i>
+                    <h3 class="section-title">Hosting</h3>
+                    <p class="card-text">
+                        Find the perfect hosting solution for your applications with our trusted partners.
+                    </p>
+                    <a href="https://go.microsoft.com/fwlink/?LinkId=301867" class="btn btn-outline-primary btn-custom">
+                        <i class="fas fa-arrow-right me-2"></i>Deploy Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
