@@ -1,4 +1,4 @@
-# Form Authentication System
+# Form Authentication
 
 This is a school activity project for IPT (Information and Programming Technology) using ASP.NET MVC 5. The project demonstrates a secure form-based authentication system with modern UI design and best security practices.
 
@@ -52,7 +52,7 @@ This project is created solely for educational purposes as part of a school acti
 
 ## Author
 
-Khadalicioso
+Miguel Enrique Dasalla
 
 ## License
 
